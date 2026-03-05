@@ -1,7 +1,8 @@
 header {
   background: rgba(0, 0, 0, 0.7);
   width: 100%;
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 100;
 }
 
@@ -26,18 +27,18 @@ a {
   color: #fff;
   text-decoration: none;
 }
- p {
+p {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
   width: 80%;
   padding: 10%;
-  margin-top:-20%;
+  margin-top: -20%;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
- }
+}
 nav ol li:hover {
   background: #eca023;
   border-radius: 25px;
@@ -47,14 +48,120 @@ body {
   margin: 0;
   padding: 0;
   background-color: rgb(33, 33, 33);
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
 .system {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex: 1;
+  min-height: 0;
+}
+
+footer {
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+footer p {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  width: min(80%, 900px);
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+  line-height: 1.5;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  body {
+    height: auto;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  nav {
+    float: none;
+  }
+
+  ol {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 10px 12px;
+  }
+
+  li {
+    float: none;
+    font-size: 15px;
+  }
+
+  a {
+    padding: 6px 8px;
+  }
+
+  .system {
+    flex: none;
+    min-height: clamp(220px, 42vh, 320px);
+    padding: 14px 10px 12px;
+  }
+
+  .planets-container {
+    transform: scaleX(1.55);
+  }
+
+  footer {
+    padding: 8px 0 14px;
+  }
+
+  footer p {
+    width: min(92%, 560px);
+    padding: 0;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+
+  p {
+    width: 92%;
+    margin-top: 0;
+    padding: 16px 0;
+    font-size: 16px;
+    display: block;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .planets-container {
+    transform: scaleX(1.35);
+  }
+
+  .sun {
+    box-shadow:
+      0 0 40px rgb(253, 203, 163),
+      0 0 70px rgb(184, 160, 26);
+  }
+
+  footer p {
+    font-size: 14px;
+  }
 }
 
 .planets-container {
@@ -71,7 +178,9 @@ body {
   height: 150px;
   border-radius: 50%;
   background-color: rgb(248, 244, 163);
-  box-shadow: 0 0 60px rgb(253, 203, 163), 0 0 98px rgb(184, 160, 26);
+  box-shadow:
+    0 0 60px rgb(253, 203, 163),
+    0 0 98px rgb(184, 160, 26);
   transform: scaleX(0.2);
 }
 
